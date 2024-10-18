@@ -87,7 +87,6 @@ function theme_get_customizer_css()
     }
 
     if (!empty($colorsRGB)):
-        var_dump($colorsRGB);
 ?>
         :root {
         --primary-color: <?= $colorsRGB['primary_color'] ? $colorsRGB['primary_color'] : '39, 50, 114'  ?>;
