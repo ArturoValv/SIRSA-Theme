@@ -102,9 +102,7 @@ function theme_get_customizer_css()
     $css = ob_get_clean();
     return $css;
 }
-?>
 
-<?php
 function hex_converter($color)
 {
     $trimmed_color_string = ltrim($color, '#');
