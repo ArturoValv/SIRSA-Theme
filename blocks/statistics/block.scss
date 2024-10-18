@@ -1,0 +1,220 @@
+@import "../../assets/scss/breakpoints";
+
+.block-statistics {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+
+  &__inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: $mdpi) {
+      flex-direction: row;
+    }
+
+    .col {
+      width: 100%;
+      padding: 60px 20px;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(var(--primary-color));
+
+      @media (min-width: $tablet) {
+        padding: 60px;
+      }
+
+      @media (min-width: $mdpi) {
+        height: 100%;
+      }
+
+      &__inner {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .pretitle {
+        margin-bottom: 15px;
+        line-height: 20px;
+        font-weight: 500;
+
+        @media (min-width: $tablet) {
+          font-size: 16px;
+        }
+      }
+
+      .content {
+        p,
+        span,
+        li {
+          color: #fff;
+        }
+        a {
+          color: rgb(var(--secondary-color));
+          &:hover {
+            color: rgb(var(--primary-color));
+          }
+        }
+
+        p {
+          margin-bottom: 15px;
+        }
+
+        li {
+          position: relative;
+          margin-bottom: 15px;
+          padding-left: 20px;
+          display: block;
+          &::before {
+            content: url("./square-check-regular.svg");
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            display: block;
+          }
+        }
+      }
+
+      &:first-child {
+        .block-title {
+          margin-bottom: 40px;
+          color: #fff;
+          strong,
+          span {
+            color: rgb(var(--secondary-color));
+          }
+        }
+
+        .link {
+          display: flex;
+          align-items: center;
+          font-family: var(--poppins);
+          color: rgb(var(--secondary-color));
+          transition: 0.3s linear;
+
+          span {
+            margin-left: 6px;
+            font-size: 12px;
+            line-height: 30px;
+            font-weight: 600;
+          }
+
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        background-color: rgb(var(--secondary-color));
+
+        .pretitle {
+          color: rgb(var(--primary-color));
+        }
+
+        .title {
+          margin-bottom: 30px;
+          color: #fff;
+        }
+
+        .graphics {
+          width: 100%;
+          margin-bottom: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+
+          .graph {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            span {
+              width: fit-content;
+              flex: 0;
+              display: flex;
+              font-family: var(--roboto);
+              font-size: 16px;
+              font-weight: 400;
+              white-space: nowrap;
+              color: #fff;
+            }
+
+            .bar {
+              height: 10px;
+              flex: 0 0 100%;
+              display: flex;
+              background-color: #fff;
+
+              hr {
+                width: 0;
+                height: 100%;
+                display: block;
+                background-color: rgb(var(--primary-color));
+              }
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        .pretitle {
+          color: #fff;
+        }
+
+        .title {
+          margin-bottom: 30px;
+          color: rgb(var(--secondary-color));
+        }
+
+        .amounts {
+          padding: 20px 40px;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+
+          @media (min-width: $tablet) {
+            padding: 20px 0;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+
+          .amount {
+            display: flex;
+            flex-direction: column;
+
+            .value {
+              margin-bottom: 10px;
+              font-family: var(--poppins);
+              font-size: 30px;
+              line-height: 30px;
+              font-weight: 600;
+              color: #fff;
+            }
+
+            .concept {
+              margin-bottom: 5px;
+              font-size: 25px;
+              font-weight: 300;
+              text-transform: capitalize;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

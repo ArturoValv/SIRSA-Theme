@@ -1,0 +1,212 @@
+@import "../../assets/scss/breakpoints";
+
+.block-testimonials {
+  width: 100%;
+  display: flex;
+  &__inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media (min-width: $ldpi) {
+      flex-direction: row;
+    }
+
+    .col {
+      width: 100%;
+      min-height: 432px;
+      position: relative;
+      display: flex;
+
+      @media (min-width: $ldpi) {
+        width: 50%;
+        height: 100%;
+        flex: 0 0 50%;
+      }
+
+      &__inner {
+        padding: 80px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media (min-width: $ldpi) {
+          height: 100%;
+          padding: 120px 50px;
+        }
+
+        @media (min-width: $mdpi) {
+          padding: 100px 50px;
+        }
+      }
+
+      &:first-child {
+        @media (min-width: $mdpi) {
+          padding: 10px 0;
+        }
+
+        .bg-img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 0;
+          display: block;
+          object-fit: cover;
+          object-position: center center;
+        }
+
+        .col__inner {
+          width: 100%;
+          min-height: 100%;
+          position: relative;
+          z-index: 1;
+          background-color: rgba(var(--secondary-color), 0.8);
+
+          @media (min-width: $mdpi) {
+            padding-left: 35%;
+          }
+
+          .block-title {
+            margin-bottom: 40px;
+            color: #fff;
+          }
+
+          .content {
+            margin-bottom: 25px;
+            @media (min-width: $ldpi) {
+              margin-bottom: 45px;
+            }
+            * {
+              color: #fff;
+            }
+          }
+
+          .btn {
+            width: fit-content;
+            padding: 15px 30px;
+            display: flex;
+            font-size: 16px;
+          }
+        }
+      }
+
+      &:last-child {
+        background-color: rgba(var(--primary-color), 1);
+        .col__inner {
+          width: 100%;
+          min-height: 100%;
+
+          .testimonials {
+            width: 100%;
+            margin-bottom: 50px;
+            padding: 0 10px;
+
+            .testimonial {
+              display: flex;
+              flex-direction: column;
+
+              &:hover {
+                .photo {
+                  border-color: rgba(var(--secondary-color));
+                }
+
+                .name::after {
+                  opacity: 0.5;
+                }
+              }
+
+              .photo {
+                width: 90px;
+                height: 90px;
+                margin-bottom: 30px;
+                display: block;
+                border: 5px solid rgba($color: #fff, $alpha: 0.3);
+                border-radius: 50%;
+                transition: 0.3s linear;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  object-fit: cover;
+                  object-position: center center;
+                  border-radius: 50%;
+                }
+              }
+
+              .name {
+                width: 100%;
+                margin-bottom: 40px;
+                position: relative;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                color: #fff;
+                font-family: var(--poppins);
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 400;
+
+                &::after {
+                  content: "\201C";
+                  margin-bottom: -35px;
+                  font-family: georgia;
+                  font-size: 160px;
+                  font-weight: 500;
+                  color: #ffffff;
+                  opacity: 0.06;
+                  transition: 0.3s linear;
+                }
+
+                @media (min-width: $tablet) {
+                  &::after {
+                    margin-bottom: 0;
+                    margin-right: 50px;
+                  }
+                }
+              }
+
+              .content {
+                margin-bottom: 20px;
+                color: #bcbcbc;
+              }
+
+              .stars {
+                width: 100%;
+                display: flex;
+                svg {
+                  width: 12px;
+                  height: 12px;
+                  fill: rgba(var(--secondary-color));
+                }
+              }
+            }
+          }
+
+          .swiper-pagination {
+            padding: 0 10px;
+            position: static;
+            text-align: left;
+
+            .swiper-pagination-bullet {
+              width: 8px;
+              height: 8px;
+              margin: 0 5px;
+              background-color: #bcbcbc;
+              opacity: 1;
+
+              &-active {
+                background-color: rgb(var(--secondary-color));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

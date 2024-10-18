@@ -1,0 +1,26 @@
+.internal-banner {
+  width: 100%;
+  margin-bottom: 60px;
+  padding: 40px 0;
+  display: inline-block;
+  background-color: rgb(var(--primary-color));
+
+  @media (min-width: $tablet) {
+    padding: 60px 0;
+  }
+
+  &__inner {
+    .page-title {
+      margin: 0;
+      color: #fff;
+      text-transform: capitalize;
+      text-align: center;
+
+      @media (min-width: $tablet) {
+        font-size: 5rem;
+        line-height: normal;
+        text-align: left;
+      }
+    }
+  }
+}
