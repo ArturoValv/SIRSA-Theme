@@ -70,7 +70,7 @@
           .block-title {
             margin-bottom: 20px;
             text-align: center;
-            color: rgb(var(--secondary-color));
+            color: #fff;
           }
 
           &:hover {
@@ -139,7 +139,7 @@
             text-align: center;
 
             span {
-              color: rgb(var(--secondary-color));
+              color: #fff;
               font-size: 14px;
               text-transform: none;
             }
@@ -241,6 +241,7 @@
 
           &-wrapper {
             width: 100%;
+            min-height: 100%;
             padding: 100px 40px;
             position: relative;
             z-index: 1;

@@ -15,7 +15,6 @@ const webp = require("gulp-webp");
 
 const paths = {
   scss: "./assets/scss/**/*.scss",
-  scss_options_page: "./theme-functions/*.scss",
   scss_blocks: "./blocks/**/*.scss",
   js: "./assets/js/**/*.js",
   images: "./assets/images/**/*",
@@ -40,21 +39,8 @@ function css_blocks() {
       .pipe(sourcemaps.init())
       .pipe(sass())
       .pipe(postcss([autoprefixer(), cssnano()]))
-      //.pipe(postcss([autoprefixer()]))
       .pipe(sourcemaps.write("."))
       .pipe(dest("blocks"))
-  );
-}
-
-function css_options_page() {
-  return (
-    src(paths.scss_options_page)
-      .pipe(sourcemaps.init())
-      .pipe(sass())
-      .pipe(postcss([autoprefixer(), cssnano()]))
-      //.pipe(postcss([autoprefixer()]))
-      .pipe(sourcemaps.write("."))
-      .pipe(dest("theme-functions"))
   );
 }
 
@@ -80,20 +66,17 @@ function versionWebp() {
 function watchArchivos() {
   watch(paths.scss, css);
   watch(paths.scss_blocks, css_blocks);
-  watch(paths.scss_options_page, css_options_page);
   watch(paths.js, javascript);
   watch(paths.images, images);
   watch(paths.images, versionWebp);
 }
 
 exports.css = css;
-exports.css_options_page = css_options_page;
 exports.css_blocks = css_blocks;
 exports.watchArchivos = watchArchivos;
 exports.default = parallel(
   css,
   css_blocks,
-  css_options_page,
   javascript,
   images,
   versionWebp,
@@ -102,7 +85,6 @@ exports.default = parallel(
 exports.build = parallel(
   css,
   css_blocks,
-  css_options_page,
   javascript,
   images,
   versionWebp,

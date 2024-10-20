@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   graphics.forEach((item) => {
     let value = item.getAttribute("data-value");
     let index = 0;
-    let invalValue = value / 8;
+    let invalValue = value / 10;
 
     let inval = setInterval(() => {
       if (index == value) {
