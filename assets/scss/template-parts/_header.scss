@@ -22,7 +22,7 @@
 
   &__top {
     width: 100%;
-    padding: 20px 30px;
+    padding: 20px 10px;
     background-color: rgba(var(--primary-color), 1);
 
     @media (min-width: $mdpi) {
@@ -98,13 +98,15 @@
 
       .contact-links {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
 
         @media (min-width: $tablet) {
           flex-direction: row;
           justify-content: center;
+          gap: 0;
           flex: 0 0 100%;
 
           li {
@@ -157,7 +159,7 @@
 
   &__bottom {
     width: 100%;
-    padding: 40px 50px;
+    padding: 40px 20px;
     background-color: #fff;
 
     @media (min-width: $mdpi) {
@@ -166,12 +168,10 @@
 
     .container {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       gap: 20px;
       @media (min-width: $ldpi) {
-        flex-direction: row;
         justify-content: space-between;
       }
     }

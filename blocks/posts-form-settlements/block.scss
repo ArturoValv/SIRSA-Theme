@@ -141,6 +141,10 @@
 
           &__excerpt {
             font-size: 2rem;
+            @media (min-width: $tablet) {
+              font-size: 1.6rem;
+              line-height: 3rem;
+            }
           }
 
           &__permalink {
@@ -150,6 +154,10 @@
             font-size: 2rem;
             color: rgb(var(--secondary-color));
             transition: 0.3s linear;
+            @media (min-width: $tablet) {
+              font-size: 1.6rem;
+              line-height: 3rem;
+            }
             span {
               font-size: 1.2rem;
               line-height: 2.2rem;
@@ -210,6 +218,10 @@
                 color: #bcbcbc;
                 border: 1px solid rgba(0, 0, 0, 0.15);
                 border-radius: 0;
+                @media (min-width: $tablet) {
+                  font-size: 1.6rem;
+                  line-height: 3rem;
+                }
                 &::placeholder {
                   color: #bcbcbc;
                 }
@@ -258,6 +270,11 @@
                 font-size: 2rem;
                 color: #fff;
                 cursor: pointer;
+
+                @media (min-width: $tablet) {
+                  font-size: 1.6rem;
+                  line-height: 3rem;
+                }
 
                 &:hover {
                   background-color: rgb(var(--primary-color));
@@ -340,6 +357,10 @@
               font-weight: 500;
               letter-spacing: 1px;
               color: rgb(var(--primary-color));
+              @media (min-width: $tablet) {
+                font-size: 1.6rem;
+                line-height: 3rem;
+              }
             }
           }
         }

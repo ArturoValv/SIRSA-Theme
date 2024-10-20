@@ -91,6 +91,10 @@
             padding: 15px 30px;
             display: flex;
             font-size: 2rem;
+
+            @media (min-width: $tablet) {
+              font-size: 1.6rem;
+            }
           }
         }
       }

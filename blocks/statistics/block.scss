@@ -46,7 +46,8 @@
         font-weight: 500;
 
         @media (min-width: $tablet) {
-          font-size: 2rem;
+          font-size: 1.6rem;
+          line-height: 3rem;
         }
       }
 
@@ -151,6 +152,10 @@
               font-weight: 400;
               white-space: nowrap;
               color: #fff;
+
+              @media (min-width: $tablet) {
+                font-size: 1.6rem;
+              }
             }
 
             .bar {

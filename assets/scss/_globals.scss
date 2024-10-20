@@ -1,6 +1,6 @@
 :root {
   //Color Scheme
- /*  --primary-color: 39, 50, 114;
+  /*  --primary-color: 39, 50, 114;
   --secondary-color: 255, 94, 20;
   --tertiary-color: 0, 0, 0;
   --light-grey: 245, 245, 245;
@@ -36,6 +36,11 @@ body {
   font-size: 2rem;
   line-height: 3.4rem;
   font-family: var(--roboto);
+
+  @media (min-width: $tablet) {
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+  }
 }
 
 *,
@@ -65,7 +70,7 @@ h1 *,
   font-size: 2.8rem;
   font-weight: 600;
   line-height: 5.8rem;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   font-family: var(--poppins);
 
   @media (min-width: $tablet) {
@@ -129,7 +134,7 @@ h5,
 h5 * {
   font-family: var(--poppins);
   font-size: 1.8rem;
-  line-height: 3rem;
+  line-height: 3.2rem;
   font-weight: 600;
 
   @media (min-width: $tablet) {
@@ -156,6 +161,10 @@ a {
   line-height: 3.4rem;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
+  @media (min-width: $tablet) {
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+  }
 }
 
 a:hover,
@@ -182,6 +191,10 @@ p {
   color: rgb(var(--text-color));
   font-size: 2rem;
   line-height: 3.4rem;
+  @media (min-width: $tablet) {
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+  }
 }
 
 picture {
@@ -215,6 +228,10 @@ img {
   font-weight: 400;
   color: rgba(var(--text-color), 1);
   line-height: 3.4rem;
+  @media (min-width: $tablet) {
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+  }
   p,
   span,
   li {
@@ -225,6 +242,10 @@ img {
     font-weight: 400;
     line-height: 3.4rem;
     vertical-align: text-top;
+    @media (min-width: $tablet) {
+      font-size: 1.8rem;
+      line-height: 3.2rem;
+    }
   }
 }
 
@@ -234,7 +255,7 @@ img {
   font-weight: bold;
   color: rgb(var(--primary-complement));
   letter-spacing: 2px;
-  line-height: 3rem;
+  line-height: 3.2rem;
   text-transform: capitalize;
 
   @media (min-width: $tablet) {
@@ -260,6 +281,10 @@ img {
     font-size: 2rem;
     line-height: 3.4rem;
     text-align: center;
+    @media (min-width: $tablet) {
+      font-size: 1.8rem;
+      line-height: 3.2rem;
+    }
   }
 
   &.white {
@@ -388,6 +413,10 @@ img {
     font-size: 2rem;
     line-height: 2.4rem;
     font-weight: bold;
+    @media (min-width: $tablet) {
+      font-size: 1.8rem;
+      line-height: 3.2rem;
+    }
   }
 }
 
