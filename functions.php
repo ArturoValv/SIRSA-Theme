@@ -354,13 +354,13 @@ function sirsa_theme_register_acf_block_types()
 	acf_register_block_type(array(
 		'name'              => 'Bloque - Equipo',
 		'title'             => __('Bloque - Equipo'),
-		'render_template'   => '/blocks/equipo/block.php',
+		'render_template'   => '/blocks/team/block.php',
 		'category'          => 'sirsa-blocks',
 		'icon'              => 'welcome-write-blog',
 		'mode'				=> 'edit',
 		'enqueue_assets' => function () {
-			wp_enqueue_style('block-equipo-css', get_template_directory_uri() . '/blocks/equipo/block.css', array('swipercss'), '1.0');
-			wp_enqueue_script('block-equipo-js', get_template_directory_uri() . '/blocks/equipo/block.js', array('swiperjs'), '1.0', true);
+			wp_enqueue_style('block-team-css', get_template_directory_uri() . '/blocks/team/block.css', array('swipercss'), '1.0');
+			wp_enqueue_script('block-team-js', get_template_directory_uri() . '/blocks/team/block.js', array('swiperjs'), '1.0', true);
 		},
 	));
 }

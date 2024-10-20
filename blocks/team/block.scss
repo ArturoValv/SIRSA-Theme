@@ -1,0 +1,46 @@
+@import "../../assets/scss/breakpoints";
+
+.block-team {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__inner {
+    padding: 110px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+
+    .block-title {
+      max-width: 475px;
+      color: rgb(var(--primary-color));
+      text-align: center;
+      span,
+      strong {
+        color: rgb(var(--secondary-color));
+      }
+    }
+  }
+
+  .team-members {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__wrapper {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .member {
+      min-width: 280px;
+      padding: 0 15px;
+      flex: 1 0 25%;
+      display: flex;
+    }
+  }
+}
