@@ -68,7 +68,7 @@
         line-height: 25px;
         font-weight: 400;
         font-style: normal;
-        color: #bcbcbc;
+        color: rgb(var(--light-grey));
         transition: 0.3s linear;
 
         @media (min-width: $tablet) {
@@ -80,7 +80,7 @@
       svg {
         width: 16px;
         height: 16px;
-        fill: #bcbcbc;
+        fill: rgb(var(--light-grey));
         transition: 0.3s linear;
       }
 
@@ -122,7 +122,7 @@
                 display: block;
                 font-size: 22px;
                 font-weight: 300;
-                color: #bcbcbc;
+                color: rgb(var(--light-grey));
               }
             }
 
@@ -522,7 +522,7 @@
           display: block;
 
           path {
-            fill: #bcbcbc;
+            fill: rgb(var(--light-grey));
             transition: all 0.3s linear;
           }
         }

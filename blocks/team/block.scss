@@ -33,14 +33,203 @@
     &__wrapper {
       width: 100%;
       display: flex;
+      justify-content: space-between;
       flex-wrap: wrap;
+      row-gap: 15px;
+
+      .member {
+        flex: 1 0 25%;
+        padding: 0 15px;
+      }
     }
 
     .member {
       min-width: 280px;
-      padding: 0 15px;
-      flex: 1 0 25%;
+      padding: 0;
       display: flex;
+      justify-content: center;
+
+      &:hover {
+        .member__photo {
+          &::before {
+            transform: translate(-50%, -50%) scale(1) rotate(180deg);
+          }
+
+          &::after {
+            height: 100%;
+          }
+        }
+
+        .member__details {
+          &::before {
+            height: 4px;
+            background-color: rgb(var(--primary-color));
+          }
+
+          &::after {
+            height: 100%;
+          }
+
+          .name {
+            color: #fff;
+          }
+
+          .social-networks svg {
+            fill: #fff;
+          }
+
+          .position {
+            color: rgb(var(--primary-color));
+          }
+        }
+      }
+
+      &__inner {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &__photo {
+        width: 100%;
+        height: 318px;
+        position: relative;
+        display: flex;
+
+        &::before {
+          content: "";
+          background: url(./plus.png) no-repeat;
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          z-index: 2;
+          transition: all 0.3s linear;
+        }
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          display: block;
+          background-color: rgba(var(--primary-color), 0.3);
+          transition: all 0.3s linear;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: cover;
+          object-position: center center;
+        }
+      }
+
+      &__details {
+        padding: 40px 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+
+        &::before {
+          content: "";
+          width: 100%;
+          height: 1px;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          z-index: 1;
+          display: block;
+          background-color: rgb(var(--light-grey));
+          transition: all 0.3s linear;
+        }
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 0;
+          display: block;
+          background-color: rgb(var(--secondary-color));
+          transition: all 0.3s linear;
+        }
+
+        .name {
+          margin-bottom: 0;
+          position: relative;
+          z-index: 1;
+          background-color: transparent;
+          font-size: 24px;
+          font-weight: 600;
+          color: rgb(var(--primary-color));
+          text-align: center;
+          transition: all 0.3s linear;
+        }
+
+        .position {
+          margin-bottom: 0;
+          position: relative;
+          z-index: 1;
+          background-color: transparent;
+          font-size: 16px;
+          font-weight: 400;
+          font-family: var(--roboto);
+          color: rgb(var(--secondary-color));
+          text-align: center;
+          transition: all 0.3s linear;
+        }
+
+        .social-networks {
+          position: relative;
+          z-index: 1;
+          background-color: transparent;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+
+          li {
+            width: 34px;
+            height: 34px;
+            flex: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+              svg {
+                opacity: 0.8;
+              }
+            }
+
+            a {
+              width: 100%;
+              height: 100%;
+              padding: 9px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            svg {
+              width: 16px;
+              height: 16px;
+              display: block;
+              fill: rgb(var(--light-grey));
+              transition: all 0.3s linear;
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -215,7 +215,7 @@
                 padding: 15px;
                 font-family: var(--roboto);
                 font-size: 2rem;
-                color: #bcbcbc;
+                color: rgb(var(--light-grey));
                 border: 1px solid rgba(0, 0, 0, 0.15);
                 border-radius: 0;
                 @media (min-width: $tablet) {
@@ -223,7 +223,7 @@
                   line-height: 3rem;
                 }
                 &::placeholder {
-                  color: #bcbcbc;
+                  color: rgb(var(--light-grey));
                 }
               }
 

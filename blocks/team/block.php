@@ -7,21 +7,20 @@
 
                 <<?= get_field('etiqueta_de_titulo_del_bloque') ?> class="block-title h2"><?= get_field('titulo_del_bloque') ?></<?= get_field('etiqueta_de_titulo_del_bloque') ?>>
 
-
-                <div class="team-members">
-                    <div class="team-members__wrapper">
+                <div class="team-members <?= get_field('activar_carrusel') ?  'swiper' : '' ?>">
+                    <div class="<?= get_field('activar_carrusel') ?  'swiper-wrapper' : 'team-members__wrapper' ?>">
 
                         <?php
                         if (have_rows('equipo')):
                             while (have_rows('equipo')): the_row()
                         ?>
 
-                                <div class="member">
+                                <div class="member <?= get_field('activar_carrusel') ?  'swiper-slide' : '' ?>">
 
                                     <div class="member__inner">
-                                        <div class="member__photo">
+                                        <a href="<?= get_sub_field('enlace') ?>" class="member__photo">
                                             <img src="<?= get_sub_field('foto')['url'] ?>" alt="<?= get_sub_field('foto')['alt'] ?>">
-                                        </div>
+                                        </a>
                                         <div class="member__details">
                                             <p class="name h4"><?= get_sub_field('nombre') ?></p>
                                             <p class="position h5"><?= get_sub_field('puesto') ?></p>

@@ -177,7 +177,7 @@
 
               .content {
                 margin-bottom: 20px;
-                color: #bcbcbc;
+                color: rgb(var(--light-grey));
               }
 
               .stars {
@@ -201,7 +201,7 @@
               width: 8px;
               height: 8px;
               margin: 0 5px;
-              background-color: #bcbcbc;
+              background-color: rgb(var(--light-grey));
               opacity: 1;
 
               &-active {
