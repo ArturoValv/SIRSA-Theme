@@ -350,7 +350,7 @@ function sirsa_theme_register_acf_block_types()
 			wp_enqueue_script('block-testimonials-js', get_template_directory_uri() . '/blocks/testimonials/block.js', array('swiperjs'), '1.0', true);
 		},
 	));
-	
+
 	acf_register_block_type(array(
 		'name'              => 'Bloque - Equipo',
 		'title'             => __('Bloque - Equipo'),
@@ -363,7 +363,33 @@ function sirsa_theme_register_acf_block_types()
 			wp_enqueue_script('block-team-js', get_template_directory_uri() . '/blocks/team/block.js', array('swiperjs'), '1.0', true);
 		},
 	));
+
+	acf_register_block_type(array(
+		'name'              => 'Bloque - Posts Carrusel',
+		'title'             => __('Bloque - Posts Carrusel'),
+		'render_template'   => '/blocks/posts-carousel/block.php',
+		'category'          => 'sirsa-blocks',
+		'icon'              => 'welcome-write-blog',
+		'mode'				=> 'edit',
+		'enqueue_assets' => function () {
+			wp_enqueue_style('block-posts-carousel-css', get_template_directory_uri() . '/blocks/posts-carousel/block.css', array('swipercss'), '1.0');
+			wp_enqueue_script('block-posts-carousel-js', get_template_directory_uri() . '/blocks/posts-carousel/block.js', array('swiperjs'), '1.0', true);
+		},
+	));
+
+	acf_register_block_type(array(
+		'name'              => 'Bloque - Cuadrícula de Logos',
+		'title'             => __('Bloque - Cuadrícula de Logos'),
+		'render_template'   => '/blocks/logos-grid/block.php',
+		'category'          => 'sirsa-blocks',
+		'icon'              => 'welcome-write-blog',
+		'mode'				=> 'edit',
+		'enqueue_assets' => function () {
+			wp_enqueue_style('block-logos-grid-css', get_template_directory_uri() . '/blocks/logos-grid/block.css', array(), '1.0');
+		},
+	));
 }
+
 if (function_exists('acf_register_block_type')) {
 	add_action('acf/init', 'sirsa_theme_register_acf_block_types');
 }
