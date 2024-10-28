@@ -93,7 +93,7 @@ function theme_get_customizer_css()
         --secondary-color: <?= $colorsRGB['secondary_color'] ? $colorsRGB['secondary_color'] : '255, 94, 20' ?>;
         --tertiary-color: <?= $colorsRGB['tertiary_color'] ? $colorsRGB['tertiary_color'] : '0, 0, 0' ?>;
         --light-grey: <?= $colorsRGB['light_grey'] ? $colorsRGB['light_grey'] : '188, 188, 188' ?>;
-        --text-color: <?= $colorsRGB['text_color'] ? $colorsRGB['text_color'] : '102, 102, 102' ?>;
+        --text-color: <?= $colorsRGB['text_color'] ? $colorsRGB['text_color'] : '97, 98, 99' ?>;
         }
 <?php
     endif;

@@ -1,0 +1,119 @@
+@import "../../assets/scss/breakpoints";
+
+.block-newsletter {
+  width: 100%;
+  padding: 110px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__inner {
+    width: 100%;
+    padding: 0 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @media (min-width: $tablet) {
+      padding: 0 15px;
+    }
+
+    .heading {
+      width: 100%;
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 50px;
+
+      @media (min-width: $tablet) {
+        margin-bottom: 60px;
+      }
+
+      .block-title {
+        color: rgb(var(--primary-color));
+        span,
+        strong {
+          color: rgb(var(--secondary-color));
+        }
+      }
+    }
+  }
+
+  .form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+
+    &-content {
+      min-width: 280px;
+      flex: 1 0 30%;
+      color: rgb(var(--text-color));
+    }
+
+    .wpforms-container {
+      min-width: 280px;
+      margin-bottom: 0;
+      flex: 1 0 calc(70% - 60px);
+
+      .wpforms-form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        .wpforms-field-container {
+          min-width: 280px;
+          flex: 0 1 600px;
+          display: flex;
+        }
+        .wpforms-submit-container {
+          margin-top: 0;
+          flex: 1;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          [type="submit"] {
+            position: relative;
+            padding: 10px 35px;
+            padding-right: 75px;
+            background-color: rgb(var(--primary-color));
+
+            &::after {
+              content: url("../../assets/images/paper-plane-solid.svg");
+              height: 16px;
+              width: 16px;
+              position: absolute;
+              top: 50%;
+              right: 35px;
+              transform: translateY(-50%);
+              display: block;
+              font-size: 16px;
+              line-height: 16px;
+              fill: #fff;
+            }
+
+            &:hover {
+              background-color: rgb(var(--secondary-color));
+            }
+
+            @media (min-width: $tablet) {
+              font-size: 1.6rem;
+              line-height: 3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

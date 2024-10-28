@@ -388,6 +388,18 @@ function sirsa_theme_register_acf_block_types()
 			wp_enqueue_style('block-logos-grid-css', get_template_directory_uri() . '/blocks/logos-grid/block.css', array(), '1.0');
 		},
 	));
+
+	acf_register_block_type(array(
+		'name'              => 'Bloque - Boletín',
+		'title'             => __('Bloque - Boletín'),
+		'render_template'   => '/blocks/newsletter/block.php',
+		'category'          => 'sirsa-blocks',
+		'icon'              => 'welcome-write-blog',
+		'mode'				=> 'edit',
+		'enqueue_assets' => function () {
+			wp_enqueue_style('block-newsletter-css', get_template_directory_uri() . '/blocks/newsletter/block.css', array(), '1.0');
+		},
+	));
 }
 
 if (function_exists('acf_register_block_type')) {
