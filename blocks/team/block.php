@@ -1,6 +1,6 @@
 <?php if (get_field('mostrar_bloque')): ?>
 
-    <section class="block-team">
+    <section id="<?= preg_replace('/\s+/', '',get_field('id_ancla')) ?>" class="block-team">
 
         <div class="container">
             <div class="block-team__inner">

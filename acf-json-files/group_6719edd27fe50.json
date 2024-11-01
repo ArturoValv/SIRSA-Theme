@@ -62,6 +62,27 @@
             "endpoint": 0
         },
         {
+            "key": "field_6724667f89540",
+            "label": "ID ancla",
+            "name": "id_ancla",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6719ee4186aa2",
             "label": "Imagen de Fondo",
             "name": "imagen_de_fondo",
@@ -233,5 +254,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729833278
+    "modified": 1730438854
 }

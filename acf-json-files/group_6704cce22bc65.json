@@ -63,6 +63,27 @@
             "endpoint": 0
         },
         {
+            "key": "field_67246700e9d6b",
+            "label": "ID ancla",
+            "name": "id_ancla",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6704cea1e4812",
             "label": "Título del Bloque",
             "name": "titulo_del_bloque",
@@ -402,5 +423,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728536043
+    "modified": 1730438923
 }

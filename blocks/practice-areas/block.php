@@ -1,6 +1,6 @@
 <?php if (get_field('mostrar_bloque')): ?>
 
-    <section class="block-practice-areas">
+    <section id="<?= preg_replace('/\s+/', '',get_field('id_ancla')) ?>" class="block-practice-areas">
         <div class="container">
             <div class="block-practice-areas__inner">
                 <div class="heading">

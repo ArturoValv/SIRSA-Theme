@@ -256,4 +256,126 @@
       }
     }
   }
+
+  #gallery-overlay {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease-in-out;
+
+    .gallery-slide {
+      max-height: 100%;
+      height: 100%;
+      min-width: 280px;
+      flex: 1 0 90%;
+
+      &__inner {
+        max-width: 1165px;
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+        display: block;
+
+        img {
+          height: 80vh;
+          width: 100%;
+          margin: 75px 0;
+          display: block;
+          object-fit: contain;
+          object-position: center center;
+          transition: .3s linear;
+        }
+      }
+    }
+
+    .gallery-selector {
+      max-height: 100%;
+      height: 100%;
+      flex: 0 0 100%;
+      display: flex;
+      align-items: center;
+
+      &__inner {
+        min-height: fit-content;
+        margin: 0 30px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+        display: block;
+
+        a {
+          height: 100px;
+          width: 100px;
+          margin: 17.5px;
+          display: flex;
+          transition: .3s linear .5;
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          display: block;
+          object-fit: cover;
+          object-position: center center;
+        }
+      }
+    }
+
+    .gallery-overlay-close {
+      width: 75px;
+      height: 75px;
+      position: fixed;
+      right: 20px;
+      top: 20px;
+      display: block;
+      border-radius: 50%;
+      opacity: 1;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &.open {
+        opacity: 1;
+      }
+
+      div {
+        width: 50px;
+        height: 5px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: #fff;
+        transition: all 0.3s linear;
+
+        &:first-child {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &:last-child {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+
+      &:hover {
+        div {
+          &:first-child {
+            transform: translate(-50%, -50%) rotate(-45deg);
+          }
+          &:last-child {
+            transform: translate(-50%, -50%) rotate(45deg);
+          }
+        }
+      }
+    }
+  }
 }

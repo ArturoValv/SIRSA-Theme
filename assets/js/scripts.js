@@ -1,3 +1,5 @@
+const bodyWrapper = document.querySelector("#body-wrapper");
+
 //Header
 const mobileBtn = document.querySelector("#menu-mobile");
 const closeBtn = document.querySelector("#close-btn");
@@ -20,10 +22,14 @@ const portfolioCategories = document.querySelectorAll(
 const projects = document.querySelectorAll(
   ".page-template-template-portfolio .project"
 );
+const galleryBtns = document.querySelectorAll(
+  ".page-template-template-portfolio .open-gallery"
+);
+const galleryOverlay = document.querySelector("#gallery-slideshow");
 
 document.addEventListener("DOMContentLoaded", () => {
   eventListeners();
-  if (coverSlides) {
+  if (coverSlides.length != 0) {
     initSlider();
   }
 });
@@ -46,7 +52,7 @@ function eventListeners() {
   closeOverlay.addEventListener("click", closeSearch);
 
   //Slideshow
-  if (coverSlides) {
+  if (coverSlides.length != 0) {
     coverSlides.forEach((slide) => {
       slide.addEventListener("click", (e) => turnVisible(e, slide));
     });
@@ -58,6 +64,21 @@ function eventListeners() {
       category.addEventListener("click", (e) => filterCategories(e, category));
     });
   }
+
+  if (galleryBtns) {
+    galleryBtns.forEach((element) => {
+      element.addEventListener("click", (e) => showGallery(e));
+    });
+  }
+
+  document.body.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("gallery-overlay-close") ||
+      e.target.parentElement.classList.contains("gallery-overlay-close")
+    ) {
+      closeGallery();
+    }
+  });
 }
 
 //Header
@@ -115,19 +136,23 @@ function initSlider() {
 }
 
 function turnVisible(e, slide) {
-  let currentDataId = slide.getAttribute("data-id");
-  let str = currentDataId.split("-");
-  let nextDataId = Number(str[1]) + 1;
+  if (slide.children[1] == e.target) {
+    let currentDataId = slide.getAttribute("data-id");
+    let str = currentDataId.split("-");
+    let nextDataId = Number(str[1]) + 1;
 
-  slide.classList.remove("visible");
-  slide.querySelector(".content").classList.remove("visible");
+    slide.classList.remove("visible");
+    slide.querySelector(".content").classList.remove("visible");
 
-  if (nextDataId !== coverSlides.length) {
-    coverSlides[nextDataId].classList.add("visible");
-    coverSlides[nextDataId].querySelector(".content").classList.add("visible");
-  } else {
-    coverSlides[0].classList.add("visible");
-    coverSlides[0].querySelector(".content").classList.add("visible");
+    if (nextDataId !== coverSlides.length) {
+      coverSlides[nextDataId].classList.add("visible");
+      coverSlides[nextDataId]
+        .querySelector(".content")
+        .classList.add("visible");
+    } else {
+      coverSlides[0].classList.add("visible");
+      coverSlides[0].querySelector(".content").classList.add("visible");
+    }
   }
 }
 
@@ -142,8 +167,6 @@ function filterCategories(e, category) {
 
   projects.forEach((project) => {
     project.classList.remove("visible");
-
-    console.log(catSelected);
 
     if (catSelected == "0") {
       project.style.display = "flex";
@@ -172,4 +195,84 @@ function filterCategories(e, category) {
         element.style.display = "none";
       });
   }, 400);
+}
+
+function showGallery(e) {
+  e.preventDefault();
+
+  let photosIDs = e.target.getAttribute("data-photosids").split("-");
+  let overlay = galleryOverlay.content.cloneNode(true);
+  bodyWrapper.appendChild(overlay);
+
+  photosIDs.forEach(async function (element, i = 0) {
+    let photo = await fetchWPAPI(element);
+
+    let photoSlide = document.createElement("IMG");
+    photoSlide.setAttribute("id", "photo-slide-" + i);
+    photoSlide.setAttribute("src", photo.guid.rendered);
+    photoSlide.setAttribute("style", "opacity: 0");
+
+    document
+      .querySelector("#gallery-overlay .gallery-slide__inner")
+      .appendChild(photoSlide);
+
+    let photoSelector = document.createElement("A");
+    photoSelector.setAttribute("href", "#photo-slide-" + i);
+    let photoSelectorIMG = document.createElement("IMG");
+    photoSelectorIMG.setAttribute(
+      "src",
+      photo.media_details.sizes.thumbnail.source_url
+    );
+    photoSelector.setAttribute("style", "opacity: 0");
+    photoSelector.appendChild(photoSelectorIMG);
+
+    document
+      .querySelector("#gallery-overlay .gallery-selector__inner")
+      .appendChild(photoSelector);
+
+    i++;
+    stylingEvent(i, photosIDs.length);
+  });
+}
+
+async function fetchWPAPI(element) {
+  let response = await fetch(
+    document.location.origin + "/wp-json/wp/v2/media/" + element
+  );
+  let photo = await response.json();
+
+  return photo;
+}
+
+function stylingEvent(index, slidesCount) {
+  let scrollElement = document.querySelector(
+    "#gallery-overlay .gallery-slide__inner"
+  );
+  scrollElement.scrollTop =
+    (scrollElement.scrollHeight - scrollElement.clientHeight) / 2;
+
+  let slidesLoaded = document.querySelectorAll(
+    "#gallery-overlay .gallery-slide__inner img"
+  );
+  let selectorsLoaded = document.querySelectorAll(
+    "#gallery-overlay .gallery-selector__inner a"
+  );
+
+  if (slidesCount == index) {
+    setTimeout(() => {
+      slidesLoaded.forEach((element) => {
+        element.style.opacity = "1";
+      });
+
+      selectorsLoaded.forEach((element) => {
+        element.style.opacity = "1";
+      });
+    }, 500);
+  }
+}
+
+function closeGallery() {
+  document.querySelectorAll("#gallery-overlay").forEach((element) => {
+    element.remove();
+  });
 }

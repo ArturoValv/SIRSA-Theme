@@ -1,4 +1,4 @@
-<footer class="site-footer">
+<footer id="site-footer" class="site-footer">
 
     <img src="<?= get_field("imagen_de_fondo", "options")["url"] ?>" alt="<?= get_field("imagen_de_fondo", "options")["alt"] ?>" class="bg-img">
 

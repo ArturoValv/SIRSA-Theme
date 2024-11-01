@@ -1,6 +1,6 @@
 <?php if (get_field('mostrar_bloque')): ?>
 
-    <section class="block-content-grid">
+    <section id="<?= preg_replace('/\s+/', '',get_field('id_ancla')) ?>" class="block-content-grid">
 
         <div class="block-content-grid__grid">
             <div class="col-image">

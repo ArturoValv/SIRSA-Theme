@@ -1,6 +1,6 @@
 <?php if (get_field('mostrar_bloque')): ?>
 
-    <section class="block-posts-carousel">
+    <section id="<?= preg_replace('/\s+/', '',get_field('id_ancla')) ?>" class="block-posts-carousel">
 
         <div class="container">
 

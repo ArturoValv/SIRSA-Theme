@@ -1,6 +1,6 @@
 <?php if (get_field('mostrar_bloque')): ?>
 
-    <section class="block-testimonials">
+    <section id="<?= preg_replace('/\s+/', '',get_field('id_ancla')) ?>" class="block-testimonials">
         <div class="block-testimonials__inner">
 
             <div class="col">

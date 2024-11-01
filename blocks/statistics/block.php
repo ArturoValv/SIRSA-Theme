@@ -6,7 +6,7 @@ $col3 = get_field('columna_3');
 
 if (get_field('mostrar_bloque')):
 ?>
-    <section class="block-statistics">
+    <section id="<?= preg_replace('/\s+/', '',get_field('id_ancla')) ?>" class="block-statistics">
         <div class="block-statistics__inner">
 
             <div class="col">
