@@ -197,42 +197,58 @@ function filterCategories(e, category) {
   }, 400);
 }
 
+//Show Projects Gallery
 function showGallery(e) {
   e.preventDefault();
 
   let photosIDs = e.target.getAttribute("data-photosids").split("-");
-  let overlay = galleryOverlay.content.cloneNode(true);
-  bodyWrapper.appendChild(overlay);
+  let currentOverlay = document.querySelector("#gallery-overlay");
+  let currentIDs = currentOverlay
+    ? currentOverlay.getAttribute("data-ids")
+    : "";
 
-  photosIDs.forEach(async function (element, i = 0) {
-    let photo = await fetchWPAPI(element);
+  if (currentIDs !== e.target.getAttribute("data-photosids")) {
+    currentOverlay && currentOverlay.remove();
 
-    let photoSlide = document.createElement("IMG");
-    photoSlide.setAttribute("id", "photo-slide-" + i);
-    photoSlide.setAttribute("src", photo.guid.rendered);
-    photoSlide.setAttribute("style", "opacity: 0");
-
+    let overlay = galleryOverlay.content.cloneNode(true);
+    bodyWrapper.appendChild(overlay);
     document
-      .querySelector("#gallery-overlay .gallery-slide__inner")
-      .appendChild(photoSlide);
+      .querySelector("#gallery-overlay")
+      .setAttribute("data-ids", e.target.getAttribute("data-photosids"));
 
-    let photoSelector = document.createElement("A");
-    photoSelector.setAttribute("href", "#photo-slide-" + i);
-    let photoSelectorIMG = document.createElement("IMG");
-    photoSelectorIMG.setAttribute(
-      "src",
-      photo.media_details.sizes.thumbnail.source_url
-    );
-    photoSelector.setAttribute("style", "opacity: 0");
-    photoSelector.appendChild(photoSelectorIMG);
+    photosIDs.forEach(async function (element, i = 0) {
+      let photo = await fetchWPAPI(element);
 
-    document
-      .querySelector("#gallery-overlay .gallery-selector__inner")
-      .appendChild(photoSelector);
+      let photoSlide = document.createElement("IMG");
+      photoSlide.setAttribute("id", "photo-slide-" + i);
+      photoSlide.setAttribute("src", photo.guid.rendered);
+      photoSlide.setAttribute("style", "opacity: 0");
 
-    i++;
-    stylingEvent(i, photosIDs.length);
-  });
+      document
+        .querySelector("#gallery-overlay .gallery-slide__inner")
+        .appendChild(photoSlide);
+
+      let photoSelector = document.createElement("A");
+      photoSelector.setAttribute("href", "#photo-slide-" + i);
+      let photoSelectorIMG = document.createElement("IMG");
+      photoSelectorIMG.setAttribute(
+        "src",
+        photo.media_details.sizes.thumbnail.source_url
+      );
+      photoSelector.setAttribute("style", "opacity: 0");
+      photoSelector.appendChild(photoSelectorIMG);
+
+      document
+        .querySelector("#gallery-overlay .gallery-selector__inner")
+        .appendChild(photoSelector);
+
+      i++;
+
+      stylingEvent(i, photosIDs.length);
+    });
+  } else {
+    currentOverlay.style.display = "flex";
+  }
 }
 
 async function fetchWPAPI(element) {
@@ -248,31 +264,38 @@ function stylingEvent(index, slidesCount) {
   let scrollElement = document.querySelector(
     "#gallery-overlay .gallery-slide__inner"
   );
-  scrollElement.scrollTop =
+
+  if (slidesCount % 2 !== 0) {
+    scrollElement.scrollTop =
     (scrollElement.scrollHeight - scrollElement.clientHeight) / 2;
+  } else {
+    let scrollLength =
+    ((slidesCount / 2) - 1) * ((scrollElement.clientHeight * 0.8) + 37.5);
+    scrollElement.scrollTop = scrollLength;
+  }
 
-  let slidesLoaded = document.querySelectorAll(
-    "#gallery-overlay .gallery-slide__inner img"
-  );
-  let selectorsLoaded = document.querySelectorAll(
-    "#gallery-overlay .gallery-selector__inner a"
-  );
-
-  if (slidesCount == index) {
+  if (slidesCount === index) {
+     
     setTimeout(() => {
-      slidesLoaded.forEach((element) => {
+      document.querySelector("#gallery-overlay .spinner").style.display = "none";
+      let slidesLoaded = document.querySelectorAll(
+        "#gallery-overlay .gallery-slide__inner img"
+      );
+      let selectorsLoaded = document.querySelectorAll(
+        "#gallery-overlay .gallery-selector__inner a"
+      );
+      slidesLoaded.forEach(function (element, i = 0) {
         element.style.opacity = "1";
-      });
-
-      selectorsLoaded.forEach((element) => {
-        element.style.opacity = "1";
+        selectorsLoaded[i].style.opacity = "1";
+        i++;
       });
     }, 500);
+
+  } else {
+    document.querySelector("#gallery-overlay .spinner").style.display = "block";
   }
 }
 
 function closeGallery() {
-  document.querySelectorAll("#gallery-overlay").forEach((element) => {
-    element.remove();
-  });
+  document.querySelector("#gallery-overlay").style.display = "none";
 }

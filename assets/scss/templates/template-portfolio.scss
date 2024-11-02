@@ -272,6 +272,18 @@
     align-items: center;
     transition: all 0.4s ease-in-out;
 
+    .spinner {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      opacity: 1;
+      display: none;
+    }
+
     .gallery-slide {
       max-height: 100%;
       height: 100%;
@@ -295,7 +307,7 @@
           display: block;
           object-fit: contain;
           object-position: center center;
-          transition: .3s linear;
+          transition: 0.3s linear;
         }
       }
     }
@@ -306,6 +318,10 @@
       flex: 0 0 100%;
       display: flex;
       align-items: center;
+
+      @media (max-width: $ldpi) {
+        display: none;
+      }
 
       &__inner {
         min-height: fit-content;
@@ -320,7 +336,7 @@
           width: 100px;
           margin: 17.5px;
           display: flex;
-          transition: .3s linear .5;
+          transition: 0.3s linear 0.5s;
         }
 
         img {

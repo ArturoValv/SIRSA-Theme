@@ -114,6 +114,7 @@ get_header();
 
 <template id="gallery-slideshow">
     <div id="gallery-overlay">
+        <img src="<?= get_stylesheet_directory_uri() ?>\assets\images\spinner.gif" class="spinner" alt="">
         <div class="gallery-overlay-close">
             <div></div>
             <div></div>
