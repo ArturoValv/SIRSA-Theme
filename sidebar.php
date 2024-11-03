@@ -19,7 +19,7 @@
 
     <?php
     $sidebox = get_field('caja_de_contenido');
-    if ($sidebox['titulo']):
+    if ($sidebox['titulo']) {
     ?>
         <div class="widget sidebox">
 
@@ -46,8 +46,7 @@
 
         </div>
 
-
-    <?php endif ?>
+    <?php } ?>
 
     <?php dynamic_sidebar("default_sidebar") ?>
 
