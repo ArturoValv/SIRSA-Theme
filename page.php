@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 get_header();
 ?>
 
-<div class="page page__wrapper">
+<main class="main-content">
 
     <div class="container">
 
@@ -20,10 +20,15 @@ get_header();
                 wp_reset_postdata(); ?>
 
             </div>
+
+            <?php
+            if (get_field('mostrar_barra_lateral')) {
+                get_sidebar();
+            } ?>
         </div>
 
     </div>
 
-</div>
+</main>
 
 <?php get_footer() ?>

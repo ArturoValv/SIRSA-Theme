@@ -5,10 +5,6 @@ if (!defined('ABSPATH')) {
 get_header();
 ?>
 
-<div class="title-wrapper">
-    <h1 class="title h1"><?= get_the_archive_title(); ?></h1>
-</div>
-
 <div class="container page blog__wrapper">
 
     <main class="articles">

@@ -164,16 +164,13 @@ function sirsa_theme_scripts()
 
 	// Main JS scripts.
 	wp_enqueue_script('swiperjs', get_template_directory_uri() . '/build/js/imports/swiper.js', array(), '10.2.0', true);
-	wp_enqueue_script('sirsa-theme-main-scripts', get_template_directory_uri() . '/build/js/scripts.js', array('swiperjs'), '1.0', true);
+	wp_enqueue_script('sirsa-theme-swiper-scripts', get_template_directory_uri() . '/build/js/swiper-scripts.js', array('swiperjs'), '1.0', true);
+	wp_enqueue_script('sirsa-theme-main-scripts', get_template_directory_uri() . '/build/js/scripts.js', array('swiperjs', 'sirsa-theme-swiper-scripts'), '1.0', true);
 
 	// Load specific template stylesheet
-	if (is_front_page() || is_page_template("page-templates/template-homepage.php")) {
-		/* wp_enqueue_style('sirsa-theme-front-page', get_template_directory_uri() . "/build/css/templates/frontpage.css", array(), '1.0'); */
-	}
-
 	if (is_page()) {
 		if (!is_front_page() || !is_page_template("page-templates/template-homepage.php")) {
-			/* wp_enqueue_style('sirsa-theme-template-default', get_template_directory_uri() . '/build/css/templates/template-default.css', array(), '1.0'); */
+			wp_enqueue_style('sirsa-theme-template-default', get_template_directory_uri() . '/build/css/templates/template-default.css', array(), '1.0');
 		}
 
 		switch (get_page_template_slug()) {
@@ -201,19 +198,17 @@ add_filter('excerpt_length', 'sirsa_theme_custom_excerpt_length', 999);
 /* Widget Area */
 function sirsa_theme_widget_zones()
 {
-
 	register_sidebar(array(
 		'name' => 'Default Sidebar',
 		'id' => 'default_sidebar',
 		'before_widget' => '<div class="widget">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3 class="text-center widget__title h3">',
-		'after_title' => '</h3>'
+		'before_title' => '<p class="text-center widget__title h5">',
+		'after_title' => '</p>'
 	));
 }
 
 add_action('widgets_init', 'sirsa_theme_widget_zones');
-
 
 //Enable SVG uploads
 function add_file_types_to_uploads($file_types)
@@ -267,8 +262,6 @@ function wp_check_svg($file)
 	return $file;
 }
 add_filter('wp_handle_upload_prefilter', 'wp_check_svg');
-
-
 
 // Custom Block Categories
 function sirsa_blocks_category($categories, $post)
@@ -406,8 +399,6 @@ if (function_exists('acf_register_block_type')) {
 	add_action('acf/init', 'sirsa_theme_register_acf_block_types');
 }
 
-
-
 /* Add ACF Options Page
 -------------------------------------------------------------- */
 if (function_exists('acf_add_options_page')) {
@@ -419,7 +410,6 @@ if (function_exists('acf_add_options_page')) {
 		'redirect' => false
 	));
 }
-
 
 //Color Scheme
 require_once get_template_directory() . '/theme-functions/color-scheme.php';

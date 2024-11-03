@@ -9,10 +9,28 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <?php wp_body_open(); ?>
+    <?php
+    wp_body_open();
+
+    switch (get_field("estilo_de_encabezado", "options")) {
+
+        case 'static':
+            $header_style = "static";
+            break;
+
+        case 'sticky':
+            $header_style = "sticky";
+            break;
+
+        default:
+            $header_style = "static";
+            break;
+    }
+
+    ?>
 
     <div id="body-wrapper">
-        <header id="top" class="site-header">
+        <header id="top" class="site-header <?= $header_style ?>">
             <div class="site-header__top">
                 <div class="container">
 

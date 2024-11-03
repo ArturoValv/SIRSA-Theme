@@ -21,6 +21,33 @@
             "selected": 0
         },
         {
+            "key": "field_67270ed96ddd9",
+            "label": "Estilo de Encabezado",
+            "name": "estilo_de_encabezado",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "static": "Estático",
+                "sticky": "Fijo en el borde superior de la página"
+            },
+            "default_value": "Estático",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_66ebb4650de67",
             "label": "FOOTER",
             "name": "",
@@ -562,5 +589,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1727928662
+    "modified": 1730615244
 }

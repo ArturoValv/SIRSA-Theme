@@ -3,6 +3,27 @@
     "title": "Post Type - Poyectos",
     "fields": [
         {
+            "key": "field_6727272b262b9",
+            "label": "Mostrar Galería después del Contenido",
+            "name": "mostrar_galeria_despues_del_contenido",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_670cc557e34d5",
             "label": "Galería de Proyecto",
             "name": "galeria_de_proyecto",
@@ -74,5 +95,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728890507
+    "modified": 1730619213
 }
