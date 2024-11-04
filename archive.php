@@ -5,42 +5,40 @@ if (!defined('ABSPATH')) {
 get_header();
 ?>
 
-<div class="container page blog__wrapper">
+<div class="blog__wrapper">
 
-    <main class="articles">
-        <div class="articles__loop">
+    <div class="container">
 
-            <?php while (have_posts()) : the_post() ?>
-                <article class="article">
-                    <div class="article__wrapper">
-                        <h4 class="article__title">
-                            <a href="<?= get_the_permalink() ?>">
-                                <?= get_the_title() ?>
-                            </a>
-                        </h4>
-                        <a href="<?= get_the_permalink() ?>">
-                            <picture class="article__image">
-                                <img src="<?= get_the_post_thumbnail_url(get_the_ID(), 'square') ?>" alt="<?= get_post_meta(get_the_ID(), '_wp_attachment_image_alt', TRUE); ?>">
-                            </picture>
-                        </a>
-                        <p class="article__date"><?= get_the_date('F j Y') ?></p>
-                        <p class="article__excerpt"><?= get_the_excerpt() ?></p>
-                        <p class="article__author">Publicado por <a href="<?= get_the_permalink() ?>" class="article__link"><?= get_the_author() ?></a></p>
-                    </div>
-                </article>
-            <?php endwhile ?>
+        <main class="articles">
+            <div class="articles__loop">
 
-            <div class="post-pagination">
-                <?php
-                get_previous_posts_link();
-                the_posts_pagination();
-                get_next_posts_link();
-                ?>
+                <?php while (have_posts()) : the_post() ?>
+                    <article class="article">
+                        <div class="article__wrapper  formatted-text">
+                            <h3 class="article__title">
+                                <a href="<?= get_the_permalink() ?>" class="h2">
+                                    <?= get_the_title() ?>
+                                </a>
+                            </h3>
+                            <p class="article__date"><?= get_the_date('j M, Y') ?></p>
+                            <p class="article__excerpt"><?= get_the_excerpt() ?></p>
+                        </div>
+                    </article>
+                <?php endwhile ?>
+
+                <div class="post-pagination">
+                    <?php
+                    get_previous_posts_link();
+                    the_posts_pagination();
+                    get_next_posts_link();
+                    ?>
+                </div>
+
+
             </div>
+        </main>
 
-
-        </div>
-    </main>
+    </div>
 
 </div>
 
