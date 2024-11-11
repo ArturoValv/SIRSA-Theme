@@ -257,9 +257,12 @@
             }
           }
 
-          .wpforms-container input,
-          .wpforms-container .wpforms-field-row {
-            max-width: 100%;
+          .wpforms-container {
+            select,
+            input,
+            .wpforms-field-row {
+              max-width: 100%;
+            }
           }
         }
       }
