@@ -21,6 +21,27 @@
             "selected": 0
         },
         {
+            "key": "field_6736c0f0e0219",
+            "label": "Activar Presentación Automática",
+            "name": "activar_presentacion_automatica",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_66ebbf1193dbf",
             "label": "Slider",
             "name": "slider",
@@ -268,5 +289,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728207425
+    "modified": 1731641621
 }

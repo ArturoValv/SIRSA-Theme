@@ -363,7 +363,6 @@
             a {
               font-family: var(--roboto);
               font-size: 16px;
-              line-height: 20px;
               color: rgba($color: #000, $alpha: 1);
               font-weight: 400;
               transition: color 0.3s linear 0s;
@@ -414,8 +413,9 @@
             }
 
             &.menu-item-has-children {
+              align-items: center;
+              justify-content: space-between;
               @media (min-width: $ldpi) {
-                position: relative;
                 &:hover {
                   & > .sub-menu {
                     display: flex;
@@ -438,28 +438,23 @@
                 }
               }
 
-              & > a {
-                width: 100%;
-                position: relative;
-
-                &::after {
-                  content: "\276F";
-                  position: absolute;
-                  height: 35px;
-                  top: 50%;
-                  transform: translateY(-50%);
-                  right: 0;
-                  font-size: 20px;
-                  line-height: 35px;
-                  font-weight: 900;
-                  text-align: center;
-                  color: rgb(var(--tertiary-color));
-                  @media (min-width: $ldpi) {
-                    content: "";
-                    top: auto;
-                    transform: none;
-                  }
+              &::after {
+                content: "\276F";
+                font-size: 20px;
+                line-height: 35px;
+                font-weight: 900;
+                text-align: center;
+                color: rgb(var(--tertiary-color));
+                @media (min-width: $ldpi) {
+                  content: "";
+                  top: auto;
+                  transform: none;
                 }
+              }
+
+              & > a {
+                width: fit-content;
+                position: relative;
               }
             }
 

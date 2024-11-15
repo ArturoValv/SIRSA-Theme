@@ -1,16 +1,8 @@
 .cover-slider {
   width: 100%;
   min-height: fit-content;
-  height: calc(100vh - 360px);
+  height: 100vh;
   display: block;
-
-  @media (min-width: $ldpi) {
-    height: calc(100vh - 303px);
-  }
-
-  @media (min-width: $mdpi) {
-    height: calc(100vh - 144px);
-  }
 
   &__inner {
     width: 100%;

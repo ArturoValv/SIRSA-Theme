@@ -66,6 +66,27 @@
             "selected": 0
         },
         {
+            "key": "field_6736bbdd9ffcb",
+            "label": "Ancla del Footer",
+            "name": "ancla_del_footer",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ingrese aquí la palabra de anclaje que desee asignar al pie de página, sin caracteres especiales o espacios.\r\nEl valor por defecto es #site-footer.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_66fa417244476",
             "label": "Imagen de Fondo",
             "name": "imagen_de_fondo",
@@ -589,5 +610,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730615244
+    "modified": 1731641004
 }

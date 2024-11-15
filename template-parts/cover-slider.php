@@ -1,4 +1,4 @@
-<section class="cover-slider">
+<section class="cover-slider <?= get_field('activar_presentacion_automatica') ? 'autoplay' : '' ?>">
     <div class="cover-slider__inner">
 
         <?php

@@ -160,12 +160,12 @@ function sirsa_theme_scripts()
 	// Global stylesheet.
 	wp_enqueue_style('swipercss', get_template_directory_uri() . "/build/css/imports/swiper.css", array(), '10.2.0');
 	wp_enqueue_style('sirsa-theme-fonts', get_template_directory_uri() . "/assets/fonts/fonts.css", array(), '1.0');
-	wp_enqueue_style('sirsa-theme-main-stylesheet', get_template_directory_uri() . "/build/css/main-style.css", array('sirsa-theme-fonts', 'swipercss'), '1.0', 'all');
+	wp_enqueue_style('sirsa-theme-main-stylesheet', get_template_directory_uri() . "/build/css/main-style.css", array('sirsa-theme-fonts', 'swipercss'), '1.4', 'all');
 
 	// Main JS scripts.
 	wp_enqueue_script('swiperjs', get_template_directory_uri() . '/build/js/imports/swiper.js', array(), '10.2.0', true);
 	wp_enqueue_script('sirsa-theme-swiper-scripts', get_template_directory_uri() . '/build/js/swiper-scripts.js', array('swiperjs'), '1.0', true);
-	wp_enqueue_script('sirsa-theme-main-scripts', get_template_directory_uri() . '/build/js/scripts.js', array('swiperjs', 'sirsa-theme-swiper-scripts'), '1.0', true);
+	wp_enqueue_script('sirsa-theme-main-scripts', get_template_directory_uri() . '/build/js/scripts.js', array('swiperjs', 'sirsa-theme-swiper-scripts'), '1.4', true);
 
 	// Load specific template stylesheet
 	if (is_page()) {
