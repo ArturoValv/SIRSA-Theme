@@ -31,7 +31,7 @@ const galleryOverlay = document.querySelector("#gallery-slideshow");
 
 //Sections
 const sections = document.querySelectorAll(
-  "body section:not(.internal-banner)"
+  "body section:not(.internal-banner), body .site-footer"
 );
 const internalBanner = document.querySelector(
   "body section.internal-banner"

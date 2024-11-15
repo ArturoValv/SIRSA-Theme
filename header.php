@@ -29,8 +29,8 @@
 
     ?>
 
-    <div id="body-wrapper">
-        <header id="top" class="site-header <?= $header_style ?>">
+    <div id="body-wrapper top">
+        <header class="site-header <?= $header_style ?>">
             <div class="site-header__top">
                 <div class="container">
 
