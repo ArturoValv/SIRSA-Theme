@@ -416,6 +416,7 @@
               align-items: center;
               justify-content: space-between;
               @media (min-width: $ldpi) {
+                position: relative;
                 &:hover {
                   & > .sub-menu {
                     display: flex;
