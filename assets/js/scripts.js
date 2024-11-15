@@ -33,14 +33,20 @@ const galleryOverlay = document.querySelector("#gallery-slideshow");
 const sections = document.querySelectorAll(
   "body section:not(.internal-banner)"
 );
+const internalBanner = document.querySelector(
+  "body section.internal-banner"
+);
 
 initSections();
 
 document.addEventListener("DOMContentLoaded", () => {
   eventListeners();
 
+  //Internal Banner
+  internalBanner && intBannerPositioning();
+
   //Cover Slideshow
-  coverPositioning();
+  coverSlider && coverPositioning();
 
   if (coverSlides.length != 0) {
     initSlider();
@@ -145,6 +151,11 @@ function showSearch() {
 function closeSearch() {
   searchOverlay.classList.remove("open");
   closeOverlay.classList.remove("open");
+}
+
+//Internal Banner
+function intBannerPositioning() {
+  internalBanner.style.marginTop = siteHeader.clientHeight + "px";
 }
 
 //Slideshow
