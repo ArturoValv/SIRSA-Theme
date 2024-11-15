@@ -1,4 +1,4 @@
-<footer id="site-footer <?= get_field("ancla_del_footer", "options") ? get_field("ancla_del_footer", "options") : '' ?>" class="site-footer">
+<footer id="<?= get_field("ancla_del_footer", "options") ? get_field("ancla_del_footer", "options") : 'site-footer' ?>" class="site-footer">
 
     <img src="<?= get_field("imagen_de_fondo", "options")["url"] ?>" alt="<?= get_field("imagen_de_fondo", "options")["alt"] ?>" class="bg-img">
 
