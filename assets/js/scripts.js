@@ -30,7 +30,9 @@ const galleryBtns = document.querySelectorAll(
 const galleryOverlay = document.querySelector("#gallery-slideshow");
 
 //Sections
-const sections = document.querySelectorAll("body section");
+const sections = document.querySelectorAll(
+  "body section:not(.internal-banner)"
+);
 
 initSections();
 
