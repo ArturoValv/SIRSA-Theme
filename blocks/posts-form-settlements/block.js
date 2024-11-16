@@ -1,9 +1,9 @@
 const settlements = document.querySelectorAll(
-  ".block-posts-carousel__bottom .amount"
+  ".block-posts-form-carousel__bottom .amount"
 );
 
 document.addEventListener("scroll", () => {
-  let block = document.querySelector(".block-posts-carousel");
+  let block = document.querySelector(".block-posts-form-carousel");
 
   let sectionVisibility = block.checkVisibility({
     opacityProperty: true,

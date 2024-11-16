@@ -8,7 +8,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body id="top" <?php body_class(); ?>>
     <?php
     wp_body_open();
 
@@ -29,7 +29,7 @@
 
     ?>
 
-    <div id="body-wrapper top">
+    <div id="body-wrapper">
         <header class="site-header <?= $header_style ?>">
             <div class="site-header__top">
                 <div class="container">

@@ -174,8 +174,12 @@ function sirsa_theme_scripts()
 		}
 
 		switch (get_page_template_slug()) {
-			case 'page-templates/template-portfolio.php':
-				wp_enqueue_style('sirsa-theme-template-portfolio', get_template_directory_uri() . '/build/css/templates/template-portfolio.css', array(), '1.0', 'all');
+			case "page-templates/template-homepage.php":
+				wp_enqueue_script('sirsa-theme-template-home-js', get_template_directory_uri() . '/build/js/home-scripts.js', array(), '1.0', true);
+				break;
+			case "page-templates/template-portfolio.php":
+				wp_enqueue_style('sirsa-theme-template-portfolio-css', get_template_directory_uri() . '/build/css/templates/template-portfolio.css', array(), '1.0', 'all');
+				wp_enqueue_script('sirsa-theme-template-portfolio-js', get_template_directory_uri() . '/build/js/portfolio-scripts.js', array('sirsa-theme-main-scripts'), '1.0', true);
 				break;
 		}
 	}

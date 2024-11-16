@@ -1,8 +1,8 @@
 <?php if (get_field('mostrar_bloque')): ?>
-    <section id="<?= preg_replace('/\s+/', '',get_field('id_ancla')) ?>" class="block-posts-carousel">
+    <section id="<?= preg_replace('/\s+/', '',get_field('id_ancla')) ?>" class="block-posts-form-carousel">
         <div class="container">
-            <div class="block-posts-carousel__inner">
-                <div class="block-posts-carousel__top">
+            <div class="block-posts-form-carousel__inner">
+                <div class="block-posts-form-carousel__top">
 
                     <div class="posts-carousel">
                         <div class="posts-carousel__carousel swiper">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
 
-                <div class="block-posts-carousel__bottom">
+                <div class="block-posts-form-carousel__bottom">
 
                     <div class="settlements">
                         <div class="settlements__inner">
