@@ -115,12 +115,7 @@ function initSections() {
 function isVisibleInViewport() {
   sections.forEach((section) => {
     let item = section.getBoundingClientRect();
-    //if (section.classList.contains("block-posts-carousel")) {
-      /* console.log(section.className);
-      console.log(item);
-      console.log(document.documentElement.clientHeight);
-      console.log(window.innerHeight); */
-   // }
+
     if (
       item.top >= 0 &&
       item.bottom <= (window.innerHeight || document.clientHeight)
