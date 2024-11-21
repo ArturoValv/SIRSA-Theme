@@ -33,7 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
       slide.addEventListener("click", (e) => turnVisible(e, slide));
     });
   }
+});
 
+window.addEventListener("load", () => {
   //Section Visibility
   window.addEventListener("scroll", isVisibleInViewport);
 });
@@ -114,11 +116,13 @@ function initSections() {
 //Check section visibility on viewport
 function isVisibleInViewport() {
   sections.forEach((section) => {
-    let item = section.getBoundingClientRect();
+    let item = section.offsetTop;
 
     if (
-      item.top >= 0 &&
-      item.bottom <= (window.innerHeight || document.clientHeight)
+      window.scrollY >=
+      item - siteHeader.clientHeight
+      // &&
+      //item.bottom <= (window.innerHeight || document.clientHeight)
       //&& item.left >= 0 &&
       //item.right <= (window.innerWidth || document.documentElement.clientWidth)
     ) {
