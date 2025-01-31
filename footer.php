@@ -46,7 +46,7 @@
                                     </svg>
 
                                     <?php while (have_rows("telefonos", "options")): the_row() ?>
-                                        <a href="tel:+1<?= preg_replace('/^0|[^a-zA-Z0-9+]+/', '', get_sub_field("telefono")) ?>" class="label">
+                                        <a href="tel:+52<?= preg_replace('/^0|[^a-zA-Z0-9+]+/', '', get_sub_field("telefono")) ?>" class="label">
                                             <span><?= get_sub_field("telefono") ?></span>
                                         </a>
                                     <?php endwhile ?>

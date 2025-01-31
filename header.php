@@ -42,7 +42,7 @@
                         <ul class="contact-links">
                             <?php if ($phone): ?>
                                 <li>
-                                    <a href="tel:+1<?= preg_replace('/^0|[^a-zA-Z0-9+]+/', '', $phone) ?>" class="label">
+                                    <a href="tel:+52<?= preg_replace('/^0|[^a-zA-Z0-9+]+/', '', $phone) ?>" class="label">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                             <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                             <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 
