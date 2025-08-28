@@ -25,18 +25,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function eventListeners() {
   //Header
-  if (window.screen.width < 1023) {
-    mobileBtn.addEventListener("click", showMenu);
-    parentMenuItems.forEach((item) => {
-      item.addEventListener("click", (e) => {
-        if (e.target === item) {
-          showSubmenu(e);
-        }
+  window.addEventListener("resize", () => {
+    //Internal Banner
+    internalBanner && setTimeout(intBannerPositioning, 400);
+
+    //Mobile Menu
+    if (window.screen.width < 1023) {
+      mobileBtn.addEventListener("click", showMenu);
+      parentMenuItems.forEach((item) => {
+        item.addEventListener("click", (e) => {
+          if (e.target === item) {
+            showSubmenu(e);
+          }
+        });
       });
-    });
-    closeBtn.addEventListener("click", hideMenu);
-    backBtn.addEventListener("click", hideSubMenu);
-  }
+      closeBtn.addEventListener("click", hideMenu);
+      backBtn.addEventListener("click", hideSubMenu);
+    }
+  });
 
   searchBtn.addEventListener("click", showSearch);
   closeOverlay.addEventListener("click", closeSearch);

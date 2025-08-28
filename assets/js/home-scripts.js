@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     coverSlider.addEventListener("mouseout", startAutoplay);
   }
 
-  window.addEventListener("resize", coverPositioning);
+  window.addEventListener("resize", () => setTimeout(coverPositioning, 400));
 
   if (coverSlides.length != 0) {
     coverSlides.forEach((slide) => {
